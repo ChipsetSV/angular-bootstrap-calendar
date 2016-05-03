@@ -49,6 +49,7 @@ angular
     displayEventEndTimes: false,
     showTimesOnWeekView: false,
     displayAllMonthEvents: false,
+    selectRangeEnabled: true,
     i18nStrings: {
       weekNumber: 'Week {week}'
     },

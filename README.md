@@ -221,6 +221,8 @@ angular.module('myModule')
     calendarConfig.displayEventEndTimes = true; //This will display event end times on the month and year views. Default false.
 
     calendarConfig.showTimesOnWeekView = true; //Make the week view more like the day view, with the caveat that event end times are ignored.
+    
+    calendarConfig.selectRangeEnabled = true; //Enable select range hours on the day view.
 
   });
 ```

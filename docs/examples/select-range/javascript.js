@@ -1,6 +1,6 @@
 angular
   .module('mwl.calendar.docs')
-  .controller('SelectRangeCtrl', function(moment) {
+  .controller('SelectRangeCtrl', function(moment, calendarConfig) {
 
     var vm = this;
 
@@ -8,6 +8,8 @@ angular
     vm.calendarView = 'day';
     vm.viewDate = moment().startOf('month').toDate();
     vm.isCellOpen = true;
+
+    calendarConfig.selectRangeEnabled = true;
 
     vm.rangeSelected = function(startDate, endDate) {
       vm.firstDateClicked = startDate;
