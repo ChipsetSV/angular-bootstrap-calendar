@@ -5,7 +5,10 @@
     "angular/deferred": 2,
     "angular/directive-name": [2, "mwl"],
     "angular/empty-controller": 2,
-    "angular/di-unused": 2
+    "angular/di-unused": 2,
+    "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
+    "no-alert": 2,
+    "no-undef": 2
   },
   "env": {
     "node": true
