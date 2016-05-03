@@ -506,7 +506,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return moment(baseDate).clone().add(minutes, 'minutes').add(days || 0, 'days').toDate();
 	    };
 
-	    if (interact) {
+	    if (interact && calendarConfig.selectRangeEnabled) {
 	      vm.select = {};
 	      vm.select.active = false;
 	      interact('.cal-day-hour-part').on('down', function(event) {
@@ -527,7 +527,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          vm.select.endDate = vm.getClickedDate(date, vm.dayViewSplit);
 	          if (vm.select.endDate > vm.select.startDate) {
 	            vm.onSelectRange({startDate: vm.select.startDate, endDate: vm.select.endDate});
-	            //vm.onTimespanClick({calendarDate: vm.select.startDate});
 	          }
 	          $scope.$apply();
 	        }
@@ -1626,6 +1625,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    displayEventEndTimes: false,
 	    showTimesOnWeekView: false,
 	    displayAllMonthEvents: false,
+	    selectRangeEnabled: true,
 	    i18nStrings: {
 	      weekNumber: 'Week {week}'
 	    },

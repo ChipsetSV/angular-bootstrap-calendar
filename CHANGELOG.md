@@ -1,3 +1,11 @@
+<a name="0.19.7"></a>
+## [0.19.7](https://github.com/mattlewis92/angular-bootstrap-calendar/compare/0.19.6...v0.19.7) (2016-05-03)
+
+
+### Features
+
+* **select-range:** Add select range hours on the day view with onSelectRange event. 
+
 <a name="0.19.6"></a>
 ## [0.19.6](https://github.com/mattlewis92/angular-bootstrap-calendar/compare/0.19.5...v0.19.6) (2016-03-31)
 
