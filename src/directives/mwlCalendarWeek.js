@@ -11,6 +11,14 @@ angular
     vm.showTimes = calendarConfig.showTimesOnWeekView;
     vm.$sce = $sce;
 
+	vm.getTemplateUrl = function() {
+		if (vm.weekViewTemplate) {
+			return vm.weekViewTemplate;
+		} else {
+			return calendarConfig.templates.calendarWeekView;
+		}
+    };
+
     $scope.$on('calendar.refreshView', function() {
       vm.dayViewSplit = vm.dayViewSplit || 30;
       vm.dayViewHeight = calendarHelper.getDayViewHeight(
@@ -80,13 +88,15 @@ angular
     };
 
   })
-  .directive('mwlCalendarWeek', function(calendarConfig) {
+  .directive('mwlCalendarWeek', function() {
 
     return {
-      templateUrl: calendarConfig.templates.calendarWeekView,
+      //templateUrl: calendarConfig.templates.calendarWeekView,
+      template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       require: '^mwlCalendar',
       scope: {
+        weekViewTemplate: '=?',
         events: '=',
         viewDate: '=',
         onEventClick: '=',

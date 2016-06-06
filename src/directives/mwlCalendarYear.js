@@ -4,10 +4,18 @@ var angular = require('angular');
 
 angular
   .module('mwl.calendar')
-  .controller('MwlCalendarYearCtrl', function($scope, moment, calendarHelper) {
+  .controller('MwlCalendarYearCtrl', function($scope, moment, calendarHelper, calendarConfig) {
 
     var vm = this;
     vm.openMonthIndex = null;
+
+	vm.getTemplateUrl = function() {
+		if (vm.yearViewTemplate) {
+			return vm.yearViewTemplate;
+		} else {
+			return calendarConfig.templates.calendarYearView;
+		}
+    };
 
     $scope.$on('calendar.refreshView', function() {
       vm.view = calendarHelper.getYearView(vm.events, vm.viewDate, vm.cellModifier);
@@ -65,13 +73,15 @@ angular
     };
 
   })
-  .directive('mwlCalendarYear', function(calendarConfig) {
+  .directive('mwlCalendarYear', function() {
 
     return {
-      templateUrl: calendarConfig.templates.calendarYearView,
+      //templateUrl: calendarConfig.templates.calendarYearView,
+      template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       require: '^mwlCalendar',
       scope: {
+        yearViewTemplate: '=?',
         events: '=',
         viewDate: '=',
         onEventClick: '=',

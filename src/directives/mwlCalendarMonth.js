@@ -7,6 +7,31 @@ angular
   .controller('MwlCalendarMonthCtrl', function($scope, moment, calendarHelper, calendarConfig) {
 
     var vm = this;
+
+	vm.getTemplateUrl = function() {
+		if (vm.monthViewTemplate) {
+			return vm.monthViewTemplate;
+		} else {
+			return calendarConfig.templates.calendarMonthView;
+		}
+    };
+
+	vm.getMonthCellTemplate = function() {
+		if (vm.monthCellTemplate) {
+			return vm.monthCellTemplate;
+		} else {
+			return calendarConfig.templates.calendarMonthCell;
+		}
+	};
+
+	vm.getMonthCellEventsTemplate = function() {
+		if (vm.monthCellEventsTemplate) {
+			return vm.monthCellEventsTemplate;
+		} else {
+			return calendarConfig.templates.calendarMonthCellEvents;
+		}
+	};
+
     vm.calendarConfig = calendarConfig;
     vm.openRowIndex = null;
 
@@ -92,13 +117,18 @@ angular
     };
 
   })
-  .directive('mwlCalendarMonth', function(calendarConfig) {
+  .directive('mwlCalendarMonth', function() {
 
     return {
-      templateUrl: calendarConfig.templates.calendarMonthView,
+      //templateUrl: calendarConfig.templates.calendarMonthView,
+      template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       require: '^mwlCalendar',
       scope: {
+		monthCellTemplate: '=?',
+		monthCellEventsTemplate: '=?',
+		monthViewTemplate: '=?',
+        slideBoxTemplate: '=?',
         events: '=',
         viewDate: '=',
         onEventClick: '=',

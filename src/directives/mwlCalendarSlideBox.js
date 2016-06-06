@@ -10,6 +10,14 @@ angular
     vm.$sce = $sce;
     vm.calendarConfig = calendarConfig;
 
+	vm.getTemplateUrl = function() {
+		if (vm.slideBoxTemplate) {
+			return vm.slideBoxTemplate;
+		} else {
+			return calendarConfig.templates.calendarSlideBox;
+		}
+    };
+
     vm.isCollapsed = true;
     $scope.$watch('vm.isOpen', function(isOpen) {
       //events must be populated first to set the element height before animation will work
@@ -19,11 +27,12 @@ angular
     });
 
   })
-  .directive('mwlCalendarSlideBox', function(calendarConfig) {
+  .directive('mwlCalendarSlideBox', function() {
 
     return {
       restrict: 'E',
-      templateUrl: calendarConfig.templates.calendarSlideBox,
+      //templateUrl: calendarConfig.templates.calendarSlideBox,
+      template: '<ng-include src="vm.getTemplateUrl()"/>',
       replace: true,
       controller: 'MwlCalendarSlideBoxCtrl as vm',
       require: ['^?mwlCalendarMonth', '^?mwlCalendarYear'],
@@ -32,6 +41,7 @@ angular
         scope.isYearView = !!ctrls[1];
       },
       scope: {
+        slideBoxTemplate: '=?',
         isOpen: '=',
         events: '=',
         onEventClick: '=',

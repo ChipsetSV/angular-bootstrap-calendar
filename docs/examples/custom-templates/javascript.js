@@ -4,14 +4,14 @@ angular
 
     var vm = this;
 
-    calendarConfig.templates.calendarMonthCell = 'customMonthCell.html';
+    //calendarConfig.templates.calendarMonthCell = 'customMonthCell.html';
 
     vm.events = [];
     vm.calendarView = 'month';
     vm.viewDate = moment().startOf('month').toDate();
 
-    $scope.$on('$destroy', function() {
-      calendarConfig.templates.calendarMonthCell = 'mwl/calendarMonthCell.html';
-    });
+    // $scope.$on('$destroy', function() {
+      // calendarConfig.templates.calendarMonthCell = 'mwl/calendarMonthCell.html';
+    // });
 
   });

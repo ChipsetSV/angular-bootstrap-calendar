@@ -4,9 +4,17 @@ var angular = require('angular');
 
 angular
   .module('mwl.calendar')
-  .controller('MwlCalendarCtrl', function($scope, $log, $timeout, $attrs, $locale, moment, calendarTitle, calendarHelper) {
+  .controller('MwlCalendarCtrl', function($scope, $log, $timeout, $attrs, $locale, moment, calendarTitle, calendarHelper, calendarConfig) {
 
     var vm = this;
+
+	vm.getTemplateUrl = function() {
+		if (vm.calendarTemplate) {
+			return vm.calendarTemplate;
+		} else {
+			return calendarConfig.templates.calendar;
+		}
+    };
 
     vm.events = vm.events || [];
 
@@ -113,12 +121,22 @@ angular
     });
 
   })
-  .directive('mwlCalendar', function(calendarConfig) {
+  .directive('mwlCalendar', function() {
 
     return {
-      templateUrl: calendarConfig.templates.calendar,
+      //templateUrl: calendarConfig.templates.calendar,
+      template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       scope: {
+		calendarTemplate: '=?',
+		dayViewTemplate: '=?',
+		hourListTemplate: '=?',
+		monthCellTemplate: '=?',
+		monthCellEventsTemplate: '=?',
+		monthViewTemplate: '=?',
+		slideBoxTemplate: '=?',
+		weekViewTemplate: '=?',
+		yearViewTemplate: '=?',
         events: '=',
         view: '=',
         viewTitle: '=?',

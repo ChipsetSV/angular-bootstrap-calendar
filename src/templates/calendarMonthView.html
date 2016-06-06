@@ -16,8 +16,7 @@
         class="cal-cell1 cal-cell {{ day.highlightClass }}"
         ng-click="vm.dayClicked(day, false, $event)"
         ng-class="{pointer: day.events.length > 0}">
-        <ng-include src=":: vm.calendarConfig.templates.calendarMonthCell"></ng-include>
-      </div>
+		<ng-include src="vm.getMonthCellTemplate()"></ng-include>      </div>
     </div>
 
     <mwl-calendar-slide-box
@@ -27,7 +26,8 @@
       edit-event-html="vm.editEventHtml"
       on-edit-event-click="vm.onEditEventClick"
       delete-event-html="vm.deleteEventHtml"
-      on-delete-event-click="vm.onDeleteEventClick">
+      on-delete-event-click="vm.onDeleteEventClick"
+	  slide-box-template="vm.slideBoxTemplate">
     </mwl-calendar-slide-box>
 
   </div>

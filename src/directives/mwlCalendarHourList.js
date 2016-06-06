@@ -8,6 +8,14 @@ angular
     var vm = this;
     var dayViewStart, dayViewEnd;
 
+	vm.getTemplateUrl = function() {
+		if (vm.hourListTemplate) {
+			return vm.hourListTemplate;
+		} else {
+			return calendarConfig.templates.calendarHourList;
+		}
+    };
+
     function updateDays() {
       dayViewStart = moment(vm.dayViewStart || '00:00', 'HH:mm');
       dayViewEnd = moment(vm.dayViewEnd || '23:00', 'HH:mm');
@@ -96,13 +104,15 @@ angular
     };
 
   })
-  .directive('mwlCalendarHourList', function(calendarConfig) {
+  .directive('mwlCalendarHourList', function() {
 
     return {
       restrict: 'E',
-      templateUrl: calendarConfig.templates.calendarHourList,
+      //templateUrl: calendarConfig.templates.calendarHourList,
+      template: '<ng-include src="vm.getTemplateUrl()"/>',
       controller: 'MwlCalendarHourListCtrl as vm',
       scope: {
+        hourListTemplate: '=?',
         viewDate: '=',
         dayViewStart: '=',
         dayViewEnd: '=',

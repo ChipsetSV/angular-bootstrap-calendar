@@ -20,6 +20,7 @@
     cell-is-open="vm.cellIsOpen"
     cell-modifier="vm.cellModifier"
     slide-box-disabled="vm.slideBoxDisabled"
+	year-view-template="vm.yearViewTemplate"
     ng-switch-when="year">
   </mwl-calendar-year>
 
@@ -36,6 +37,10 @@
     cell-is-open="vm.cellIsOpen"
     cell-modifier="vm.cellModifier"
     slide-box-disabled="vm.slideBoxDisabled"
+	month-cell-template="vm.monthCellTemplate"
+	month-cell-events-template="vm.monthCellEventsTemplate"
+	month-view-template="vm.monthViewTemplate"
+	slide-box-template="vm.slideBoxTemplate"
     ng-switch-when="month">
   </mwl-calendar-month>
 
@@ -49,6 +54,7 @@
     day-view-split="vm.dayViewSplit"
     day-view-event-chunk-size="vm.dayViewEventChunkSize"
     on-timespan-click="vm.onTimespanClick"
+	week-view-template="vm.weekViewTemplate"
     ng-switch-when="week">
   </mwl-calendar-week>
 
@@ -62,7 +68,6 @@
     day-view-start="vm.dayViewStart"
     day-view-end="vm.dayViewEnd"
     day-view-split="vm.dayViewSplit"
-    day-view-event-chunk-size="vm.dayViewEventChunkSize"
-    ng-switch-when="day">
+	day-view-event-chunk-size="vm.dayViewEventChunkSize"	day-view-template="vm.dayViewTemplate"	hour-list-template="vm.hourListTemplate"    ng-switch-when="day">
   </mwl-calendar-day>
 </div>
