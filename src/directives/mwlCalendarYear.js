@@ -76,7 +76,6 @@ angular
   .directive('mwlCalendarYear', function() {
 
     return {
-      //templateUrl: calendarConfig.templates.calendarYearView,
       template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       require: '^mwlCalendar',

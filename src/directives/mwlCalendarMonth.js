@@ -120,7 +120,6 @@ angular
   .directive('mwlCalendarMonth', function() {
 
     return {
-      //templateUrl: calendarConfig.templates.calendarMonthView,
       template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       require: '^mwlCalendar',

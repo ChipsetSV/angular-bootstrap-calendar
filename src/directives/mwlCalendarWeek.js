@@ -91,7 +91,6 @@ angular
   .directive('mwlCalendarWeek', function() {
 
     return {
-      //templateUrl: calendarConfig.templates.calendarWeekView,
       template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       require: '^mwlCalendar',

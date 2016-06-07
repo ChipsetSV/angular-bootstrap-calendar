@@ -31,7 +31,6 @@ angular
 
     return {
       restrict: 'E',
-      //templateUrl: calendarConfig.templates.calendarSlideBox,
       template: '<ng-include src="vm.getTemplateUrl()"/>',
       replace: true,
       controller: 'MwlCalendarSlideBoxCtrl as vm',

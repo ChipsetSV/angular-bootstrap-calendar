@@ -108,7 +108,6 @@ angular
 
     return {
       restrict: 'E',
-      //templateUrl: calendarConfig.templates.calendarHourList,
       template: '<ng-include src="vm.getTemplateUrl()"/>',
       controller: 'MwlCalendarHourListCtrl as vm',
       scope: {

@@ -124,7 +124,6 @@ angular
   .directive('mwlCalendar', function() {
 
     return {
-      //templateUrl: calendarConfig.templates.calendar,
       template: '<ng-include src="vm.getTemplateUrl()"/>',
       restrict: 'E',
       scope: {
