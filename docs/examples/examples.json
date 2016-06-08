@@ -50,6 +50,9 @@
   "key": "custom-templates",
   "label": "Custom templates"
 }, {
+  "key": "custom-templates-in-attributes",
+  "label": "Custom templates in attributes"
+}, {
   "key": "i18n",
   "label": "Internationalization"
 }, {
