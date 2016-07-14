@@ -8,10 +8,12 @@ angular
 
     function handleMouseEvent(callbackName) {
       return function(event) {
-        if (callbackName) {
-          $parse(callbackName)($scope);
-          $scope.$apply();
-        }
+        if (event.button === 0) {
+			if (callbackName) {
+				$parse(callbackName)($scope);
+				$scope.$apply();
+			}
+		}
         event.preventDefault();
       };
     }
